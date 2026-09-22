@@ -1,5 +1,7 @@
 # CodexPortable
 
+![CodexPortable](codexportable.png)
+
 **Portable AI coding environment designed to run from removable storage across Linux, macOS, and 64-bit Windows.**
 
 CodexPortable keeps the application runtime, platform binaries, and account profiles organized in a single portable directory, making it possible to carry a consistent coding environment between compatible machines.
@@ -167,6 +169,17 @@ Profiles are useful when you need to:
 
 ##  Authentication
 
+When you start either launcher without an account argument, it presents saved
+accounts and a **Sign in with a new account** option. Selecting a saved account
+starts Codex with that profile. Selecting the new-account option asks for a
+local profile name, runs the standard `codex login` browser flow, and saves the
+result only after it completes successfully.
+
+Each saved profile forces Codex's file credential store, so its login cache is
+kept in `accounts/<profile>/auth.json` on the portable drive rather than only in
+the current computer's credential keyring. The profile name is a local label;
+it does not need to be the account email address.
+
 Authentication is handled through the Codex runtime and its supported authentication flow.
 
 CodexPortable does **not** require you to place passwords or access tokens directly inside the launcher scripts.
@@ -182,9 +195,9 @@ For security:
 
 ## Switching Accounts
 
-Use the account/profile functionality provided by the launcher to select the environment you want to use.
+Each profile under `accounts/<name>/` keeps its own Codex sessions, auth, and state on the USB. You can stop Codex at any time, switch profiles, and pick up again later on the same profile.
 
-A typical portable setup can look like:
+A typical portable setup:
 
 ```text
 CodexPortable/
@@ -194,29 +207,61 @@ CodexPortable/
     └── client/
 ```
 
-The selected profile is kept separate from the others.
+Launch a known saved profile directly:
+
+```bash
+sh launch.sh personal
+```
+
+```text
+launch.bat personal
+```
+
+**Switch profile anytime** (opens the account menu):
+
+```bash
+sh launch.sh --switch
+```
+
+```text
+launch.bat --switch
+```
+
+When you select a saved profile interactively, the launcher asks whether to **resume your last session** (default), start **new**, or **pick** from the session list.
+
+Skip the prompt:
+
+```bash
+sh launch.sh --resume-last work
+sh launch.sh --fresh work
+```
+
+```text
+launch.bat --resume-last work
+launch.bat --fresh work
+```
+
+The menu marks the last-used profile with `*` and offers **d) Delete a saved account**.
 
 ---
 
-##  Removing an Account
+## Removing an Account
 
-Account profiles can be removed using the launcher's account-management options.
+From the interactive menu, choose **d)** and pick the profile to remove.
 
-Depending on the launcher interface, account removal uses the supported:
+Or from the command line:
 
-```text
---delete
+```bash
+sh launch.sh --delete work
 ```
 
-or:
-
 ```text
---remove
+launch.bat --delete work
 ```
 
-option.
+`--remove` is an alias for `--delete`.
 
-> **Warning:** Removing an account profile may permanently delete its local configuration and authentication state. Make sure anything important has been backed up first.
+> **Warning:** Deletion removes that profile's local credentials **and** Codex session history on this USB. The OpenAI account itself is unchanged. Back up anything important first.
 
 ---
 

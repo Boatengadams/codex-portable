@@ -10,11 +10,11 @@ CodexPortable keeps the application runtime, platform binaries, and account prof
 
 A quick visual tour of the portable Codex workflow, account profiles, and cross-platform launchers.
 
-<video controls preload="metadata" width="100%" src="videos/vid.mp4">
-  Your browser does not support embedded video playback. <a href="videos/vid.mp4">Download the CodexPortable demo video</a>.
-</video>
+![CodexPortable demo](videos/vid-demo.gif)
 
-[![Watch the CodexPortable demo](codexportable.png)](videos/vid.mp4)
+[▶ Download the MP4 version](videos/vid.mp4)
+
+> The animated preview plays automatically on GitHub. Use the MP4 link for the full-resolution video.
 
 > **Project by BAGSGRAPHICS — 2026**
 
@@ -54,7 +54,8 @@ CodexPortable/
 ├── setup.bat
 ├── setup.sh
 └── videos/
-    └── vid.mp4
+    ├── vid.mp4
+    └── vid-demo.gif
 ```
 
 ### Directory overview

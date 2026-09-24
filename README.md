@@ -95,9 +95,52 @@ cd codex-portable
 
 You can then run the setup and launch commands below from inside the cloned directory.
 
-#### Or copy the project
+#### Clone directly onto a USB drive
 
-Alternatively, download or copy the complete `CodexPortable` directory to your USB drive or another portable storage device.
+To clone the project directly onto removable storage, insert and mount the drive first, then use its path as the clone destination. Replace the example path with the name shown by your computer.
+
+**Linux/macOS (example: `/media/$USER/USBDRIVE`):**
+
+```bash
+git clone https://github.com/Boatengadams/codex-portable.git /media/$USER/USBDRIVE/codex-portable
+cd /media/$USER/USBDRIVE/codex-portable
+```
+
+On macOS, the USB drive may appear under `/Volumes/USBDRIVE`:
+
+```bash
+git clone https://github.com/Boatengadams/codex-portable.git /Volumes/USBDRIVE/codex-portable
+cd /Volumes/USBDRIVE/codex-portable
+```
+
+**Windows (example: `E:\`):**
+
+Open Command Prompt or PowerShell and run:
+
+```text
+git clone https://github.com/Boatengadams/codex-portable.git E:\codex-portable
+cd E:\codex-portable
+```
+
+Change `E:\` to the actual drive letter shown in File Explorer. After cloning, run `setup.sh` on Linux/macOS or `setup.bat` on Windows, then use the matching launcher.
+
+#### Or copy an existing project
+
+If you already downloaded or cloned the project on your computer, copy the entire `CodexPortable` directory to the USB drive. Do not copy only some files: the `accounts/`, `bin/`, `setup.*`, and `launch.*` files must stay together.
+
+**Linux/macOS:**
+
+```bash
+cp -a /path/to/codex-portable /media/$USER/USBDRIVE/
+```
+
+**Windows PowerShell:**
+
+```powershell
+Copy-Item -Path "C:\path\to\codex-portable" -Destination "E:\codex-portable" -Recurse
+```
+
+Replace the source and destination paths with your own. Eject the drive safely before removing it.
 
 ### 2. Run setup
 

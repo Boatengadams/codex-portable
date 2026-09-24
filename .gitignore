@@ -6,6 +6,9 @@ accounts/*
 bin/**/*.tar.gz
 *.tar.gz
 
+# Local HyperFrames/brag production output
+brag-output/
+
 # OS junk
 .DS_Store
 .DS_Store?

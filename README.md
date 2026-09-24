@@ -75,9 +75,29 @@ CodexPortable/
 
 ##  Quick Start
 
-### 1. Copy the project
+### 1. Get the project
 
-Place the complete `CodexPortable` directory on your USB drive or another portable storage device.
+#### Clone from GitHub (recommended)
+
+If Git is installed, clone the repository with SSH:
+
+```bash
+git clone git@github.com:Boatengadams/codex-portable.git
+cd codex-portable
+```
+
+Alternatively, clone over HTTPS:
+
+```bash
+git clone https://github.com/Boatengadams/codex-portable.git
+cd codex-portable
+```
+
+You can then run the setup and launch commands below from inside the cloned directory.
+
+#### Or copy the project
+
+Alternatively, download or copy the complete `CodexPortable` directory to your USB drive or another portable storage device.
 
 ### 2. Run setup
 

@@ -6,6 +6,16 @@
 
 CodexPortable keeps the application runtime, platform binaries, and account profiles organized in a single portable directory, making it possible to carry a consistent coding environment between compatible machines.
 
+## 🎬 See CodexPortable in action
+
+A quick visual tour of the portable Codex workflow, account profiles, and cross-platform launchers.
+
+<video controls preload="metadata" width="100%" src="videos/vid.mp4">
+  Your browser does not support embedded video playback. <a href="videos/vid.mp4">Download the CodexPortable demo video</a>.
+</video>
+
+[![Watch the CodexPortable demo](codexportable.png)](videos/vid.mp4)
+
 > **Project by BAGSGRAPHICS — 2026**
 
 ---
@@ -42,7 +52,9 @@ CodexPortable/
 ├── launch.sh
 ├── README.md
 ├── setup.bat
-└── setup.sh
+├── setup.sh
+└── videos/
+    └── vid.mp4
 ```
 
 ### Directory overview
@@ -55,6 +67,7 @@ CodexPortable/
 | `setup.bat` | Windows setup entry point. |
 | `launch.sh` | Linux/macOS launcher. |
 | `launch.bat` | Windows launcher. |
+| `videos/` | Contains the project showcase video used by the README. |
 | `README.md` | Project documentation. |
 
 ---
